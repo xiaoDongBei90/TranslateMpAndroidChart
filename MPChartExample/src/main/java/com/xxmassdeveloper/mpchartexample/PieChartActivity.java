@@ -64,7 +64,7 @@ public class PieChartActivity extends DemoBase implements OnSeekBarChangeListene
         seekBarY.setOnSeekBarChangeListener(this);
 
         pieChart = findViewById(R.id.chart1);
-        pieChart.setUsePercentValues(true);//true-将数值变成百分比，和为100%；false-使用原始值展示
+        pieChart.setUsePercentValues(true);//true-将数值变成百分比，和为100%；false-使用原始值展示(entry.getY())
         pieChart.getDescription().setEnabled(false);//不重要，自己看
         pieChart.setExtraOffsets(5, 10, 5, 5);
 
@@ -111,9 +111,16 @@ public class PieChartActivity extends DemoBase implements OnSeekBarChangeListene
         l.setYOffset(0f);
 
         // entry label styling
-        pieChart.setEntryLabelColor(Color.WHITE);
-        pieChart.setEntryLabelTypeface(tfRegular);
-        pieChart.setEntryLabelTextSize(12f);
+        pieChart.setEntryLabelColor(Color.WHITE);//设置饼状图每块的文字颜色
+        pieChart.setEntryLabelTypeface(tfRegular);//设置饼状图每块的文字字体
+        pieChart.setEntryLabelTextSize(12f);//设置饼状图每块的文字大小
+
+        //pieChart.setDrawRoundedSlices(true);//设置饼状图末尾圆角
+        //pieChart.setCenterTextOffset(50f,80f);//设置中心文字，在x轴和y轴上的偏移量,单位dp,Default x = 0, y = 0
+        //pieChart.setCenterTextRadiusPercent(40);//设置文字绘制的半径相对于洞的百分比,默认100%，也就是默认是整个洞的半径
+//        pieChart.setDrawSlicesUnderHole(true);//不了解
+//        pieChart.setMaxAngle(180);//设置绘制整个饼状图要使用的角度，默认是360度，用于画一圈，也可以设置180度或者其他角度，绘制指定角度的饼状图，范围是90度~360度
+//        pieChart.setMinAngleForSlices(10f);//不了解
     }
 
     private void setData(int count, float range) {
